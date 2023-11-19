@@ -3,7 +3,9 @@
 Unit testing For api Product Management System with jest and connect to Mongodb Database
 
 run command : npm run start
+
 API test :
+
 1. Get products all (success, status :200)
 2. Get product by id (success, status :200)
 3. Get product (not found, status: 404)
