@@ -5,7 +5,17 @@ const getProductAll = async (req, res) => {
     await client.connect();
     const products = await client.db('dev_init').collection('products').find({}).toArray();
     await client.close();
-    res.status(200).send(products);
+    if(products.length === 0) {
+        res.status(404).send({
+            "status": "not_found",
+            "product": products
+        });
+    } else {
+        res.status(200).send({
+            "status": "ok",
+            "product": products
+        });
+    }
 };
 
 // GET a single product by ID
